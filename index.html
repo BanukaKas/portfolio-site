@@ -3,191 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banuka Lakshan Kasthuriarachchi | Portfolio</title>
+  <title>Banuka Lakshan Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --primary: #ffb347;
-      --secondary: #333;
-      --overlay: rgba(0,0,0,0.60);
-      --accent: #4a90e2;
-    }
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f0f0;
-      color: var(--secondary);
-      min-height: 100vh;
-      overflow-x: hidden;
+      background: linear-gradient(to right, #f0f0f0, #e0e0ff);
+      color: #333;
+      animation: fadeIn 2s ease-in;
     }
-    .hero {
+    header {
+      background-color: #4a90e2;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+    }
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      animation: slideUp 1.5s ease-out;
       position: relative;
-      width: 100vw;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
-      animation: fadeIn 2s ease;
     }
-    .hero::after {
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto 10px auto;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border: 4px solid #4a90e2;
+      animation: bounceIn 1.5s;
+    }
+    /* Computer Animation */
+    .computer-anim {
+      width: 240px;
+      margin: 32px auto 24px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: fadeIn 2s 1s both;
+    }
+    .monitor {
+      width: 140px;
+      height: 90px;
+      background: #222;
+      border-radius: 10px 10px 8px 8px;
+      border: 6px solid #4a90e2;
+      position: relative;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+      z-index: 2;
+      overflow: hidden;
+      animation: monitorGlow 2s infinite alternate;
+    }
+    .monitor::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: var(--overlay);
+      top: 8px; left: 8px; right: 8px; bottom: 8px;
+      background: linear-gradient(120deg, #4a90e2 10%, #fff0 80%);
+      opacity: 0.13;
+      border-radius: 6px;
+    }
+    .stand {
+      width: 24px;
+      height: 28px;
+      background: #4a90e2;
+      border-radius: 0 0 10px 10px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 90px;
       z-index: 1;
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: left;
-      color: #fff;
-      max-width: 600px;
-      padding: 40px;
-      animation: slideUp 1.5s ease;
+    .base {
+      width: 60px;
+      height: 12px;
+      background: #333;
+      border-radius: 10px 10px 16px 16px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 116px;
+      z-index: 0;
     }
-    .hero-content h1 {
-      font-size: 2.8em;
-      margin: 0 0 10px 0;
-      font-weight: bold;
-      letter-spacing: 1px;
-      line-height: 1.1;
-      animation: fadeInText 2s 0.5s both;
+    @keyframes monitorGlow {
+      from { box-shadow: 0 0 18px #4a90e2, 0 4px 18px rgba(0,0,0,0.18);}
+      to { box-shadow: 0 0 32px #4a90e2, 0 4px 28px rgba(0,0,0,0.22);}
     }
-    .hero-content h1 .highlight {
-      color: var(--primary);
-      animation: colorPulse 2s infinite alternate;
+    /* Floating Language Icons */
+    .lang-icons {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 240px;
+      width: 220px;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
     }
-    .hero-content p {
-      font-size: 1.2em;
-      margin: 18px 0 28px 0;
-      color: #e0e0e0;
-      animation: fadeInText 2s 1s both;
+    .lang-icon {
+      font-size: 2.2em;
+      opacity: 0.92;
+      animation: floatIcon 3s infinite alternate;
     }
-    .hero-content .cta-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--primary);
-      color: var(--secondary);
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1em;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      margin-bottom: 14px;
-      transition: background 0.3s, transform 0.3s;
-      animation: fadeInText 2s 1.5s both;
+    .lang-html { color: #e34c26; animation-delay: 0s;}
+    .lang-css { color: #2965f1; animation-delay: 0.5s;}
+    .lang-js { color: #f7df1e; animation-delay: 1s;}
+    .lang-react { color: #61dafb; animation-delay: 1.5s;}
+    @keyframes floatIcon {
+      from { transform: translateY(0);}
+      to { transform: translateY(-18px);}
     }
-    .hero-content .cta-btn:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-2px) scale(1.05);
-    }
-    .hero-content .contact-info {
-      margin-top: 18px;
-      font-size: 1.05em;
-      color: #fff;
-      opacity: 0.85;
-      animation: fadeInText 2s 1.8s both;
-    }
-    .hero-content .contact-info i {
-      margin-right: 8px;
-      color: var(--primary);
-    }
-    /* Fade-in and slide-up animations */
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0;}
       to { opacity: 1;}
     }
-    @keyframes fadeInText {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
     @keyframes slideUp {
-      from { transform: translateY(60px); opacity: 0;}
+      from { transform: translateY(40px); opacity: 0;}
       to { transform: translateY(0); opacity: 1;}
     }
-    @keyframes colorPulse {
-      from { color: var(--primary);}
-      to { color: #fff;}
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0;}
+      60% { transform: scale(1.05); opacity: 1;}
+      100% { transform: scale(1); }
     }
-    /* Section styles */
-    .content-section {
-      max-width: 900px;
-      margin: 60px auto 0 auto;
-      padding: 30px 20px 10px 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-      animation: fadeIn 2s 0.5s both;
-    }
-    .content-section h2 {
-      color: var(--accent);
-      margin-top: 0;
-      font-size: 2em;
+    h2 {
+      color: #4a90e2;
+      margin-top: 32px;
       font-weight: bold;
     }
-    .content-section ul {
-      margin: 10px 0 20px 0;
-      padding-left: 20px;
+    ul {
+      margin: 10px 0 20px 20px;
       font-size: 1.08em;
-    }
-    .content-section img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin: 30px 0 0 0;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      animation: fadeIn 2s 1.2s both;
     }
     footer {
       text-align: center;
-      padding: 18px 0 12px 0;
-      margin-top: 40px;
-      color: #888;
-      font-size: 1em;
-      background: transparent;
-      animation: fadeIn 2s 2s both;
+      padding: 10px;
+      margin-top: 30px;
+      color: #666;
+    }
+    a {
+      color: #4a90e2;
+      text-decoration: none;
     }
     @media (max-width: 700px) {
-      .hero-content {
-        padding: 16px;
-      }
-      .hero-content h1 {
-        font-size: 2em;
-      }
-      .content-section {
-        padding: 18px 8px;
-      }
+      .computer-anim { width: 98vw;}
+      .monitor { width: 90px; height: 56px;}
+      .stand { width: 14px; height: 16px; top: 56px;}
+      .base { width: 32px; height: 7px; top: 72px;}
+      .lang-icons { width: 120px; top: 140px;}
+      .lang-icon { font-size: 1.3em;}
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-content">
-      <h1>
-        Hello<br>
-        <span class="highlight">I'm Banuka Lakshan Kasthuriarachchi</span>
-      </h1>
-      <p>
-        Photography and technology enthusiast. I love to turn ideas into reality with code and creativity.<br>
-        Specialized in web development, UI/UX, and smart solutions.
-      </p>
-      <a href="#contact" class="cta-btn">Get in Touch</a>
-      <div class="contact-info">
-        <i class="fa fa-envelope"></i> banukalakshan980@gmail.com
-      </div>
-    </div>
-  </div>
+  <header>
+    Banuka Lakshan Portfolio
+  </header>
 
-  <div class="content-section">
+  <div class="content">
+    <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/CNdWEGeKChzovHO/IMG_20240319_133532.jpg" alt="Banuka's Picture" class="profile-pic">
+
+    <div class="computer-anim">
+      <div class="monitor"></div>
+      <div class="stand"></div>
+      <div class="base"></div>
+    </div>
+    <div class="lang-icons">
+      <i class="fab fa-html5 lang-icon lang-html" title="HTML5"></i>
+      <i class="fab fa-css3-alt lang-icon lang-css" title="CSS3"></i>
+      <i class="fab fa-js-square lang-icon lang-js" title="JavaScript"></i>
+      <i class="fab fa-react lang-icon lang-react" title="React"></i>
+    </div>
+
     <h2>About Me</h2>
     <p>
-      I am a passionate student and developer, currently pursuing my degree in Information Technology. My interests include building modern web applications, exploring smart automation, and capturing moments through photography.
+      Hello! I'm Banuka Lakshan Kasthuriarachchi, a motivated and enthusiastic student passionate about technology and innovation.<br>
+      Currently pursuing my degree in Information Technology, I'm always eager to learn and contribute to exciting projects.
     </p>
 
     <h2>Skills</h2>
@@ -205,11 +204,10 @@
       <li>Change Password Feature with React & Node.js</li>
     </ul>
 
-    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80" alt="Modern workspace">
-    
-    <h2 id="contact">Contact</h2>
+    <h2>Contact</h2>
     <p>
-      Connect with me on 
+      <i class="fa fa-envelope"></i> banukalakshan980@gmail.com<br>
+      Connect with me on
       <a href="https://github.com/BanukaKas" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </p>
   </div>
