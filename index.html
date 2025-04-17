@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banuka Kasun | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <title>Banuka's Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
     body {
-      background: #f8f9fa;
-      color: #212529;
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0f0f0, #e0e0ff);
+      color: #333;
+      animation: fadeIn 2s ease-in;
+    }
+
+    header {
+      background-color: #4a90e2;
       padding: 20px;
-      animation: fadeIn 1s ease-in;
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .container {
+
+    .content {
       max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin: auto;
+      padding: 20px;
+      animation: slideUp 1.5s ease-out;
     }
-    .profile-img {
-      width: 160px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+
+    img.profile-pic {
+      max-width: 200px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
-    h1 {
-      font-size: 2.5rem;
-      color: #007BFF;
+
+    .computer-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 20px;
     }
-    h2 {
-      font-size: 1.5rem;
+
+    footer {
+      text-align: center;
+      padding: 10px;
       margin-top: 30px;
-      color: #343a40;
-      border-bottom: 2px solid #dee2e6;
-      padding-bottom: 5px;
+      color: #666;
     }
-    p, li {
-      font-size: 1rem;
-      margin: 10px 0;
-    }
+
     a {
-      color: #007BFF;
+      color: #4a90e2;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    .resume-link {
-      margin-top: 20px;
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <img src="IMG_20240319_133532.jpg" alt="Banuka Kasun" class="profile-img" />
-    <h1>Banuka Kasun</h1>
-    <p><strong>Email:</strong> banukakasunofficial@gmail.com</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/BanukaKas" target="_blank">BanukaKas</a></p>
-    
+  <header>
+    Banuka Kasun's Portfolio
+  </header>
+
+  <div class="content">
+    <img src="https://github.com/BanukaKas/portfolio-site/raw/main/assets/profile.jpg" alt="Banuka's Picture" class="profile-pic">
+
     <h2>About Me</h2>
-    <p>A dedicated and hardworking undergraduate at SLIIT with a strong foundation in Information Technology. Passionate about designing digital experiences that are both visually stunning and intuitive. Quick learner with a great attitude towards new challenges.</p>
+    <p>
+      Hello! I'm Banuka Kasun, a motivated and enthusiastic student passionate about technology and innovation.
+      Currently pursuing my degree in Information Technology, I'm always eager to learn and contribute to exciting projects.
+    </p>
 
     <h2>Skills</h2>
     <ul>
-      <li>Front-End: HTML, CSS, JavaScript, React</li>
-      <li>Back-End: Node.js, Express</li>
+      <li>Web Development: HTML, CSS, JavaScript, React</li>
+      <li>Backend: Node.js, Express</li>
       <li>Database: MySQL</li>
-      <li>Tools: Git, GitHub, XAMPP, Figma</li>
+      <li>Tools: Git, VS Code, XAMPP</li>
     </ul>
 
     <h2>Projects</h2>
-    <p><strong>Smart Aquarium Management System</strong> – A comprehensive platform with fish disease detection using YOLOv11 and PyTorch, real-time monitoring via a React Native mobile app, and Node.js backend integration.</p>
+    <ul>
+      <li>Smart Aquarium Management System</li>
+      <li>Client Management Dashboard</li>
+      <li>Change Password Feature with React & Node.js</li>
+    </ul>
 
-    <h2>Education</h2>
-    <p><strong>SLIIT - Sri Lanka Institute of Information Technology</strong><br />
-    BSc in Information Technology</p>
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" alt="Computer Setup" class="computer-img">
 
-    <h2>Resume</h2>
-    <p class="resume-link">
-      <a href="Banuka_resume .pdf" download>Download My Resume (PDF)</a>
+    <h2>Contact</h2>
+    <p>
+      Feel free to connect with me on
+      <a href="https://github.com/BanukaKas" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </p>
   </div>
+
+  <footer>
+    &copy; 2025 Banuka Kasun. All rights reserved.
+  </footer>
 </body>
+
 </html>
