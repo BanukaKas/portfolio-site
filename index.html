@@ -6,136 +6,108 @@
   <title>Banuka Lakshan Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #ff6f61;
+      --secondary: #3f51b5;
+      --accent: #00bcd4;
+      --bg1: #fffde4;
+      --bg2: #f9ea8f;
+      --gradient: linear-gradient(135deg, #ff6f61 0%, #ffb347 40%, #00bcd4 100%);
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f0f0f0, #e0e0ff);
-      color: #333;
-      animation: fadeIn 2s ease-in;
+      background: var(--gradient);
+      min-height: 100vh;
+      color: #222;
+      animation: fadeIn 1.5s;
     }
     header {
-      background-color: #4a90e2;
-      padding: 20px;
+      background: rgba(63,81,181,0.92);
+      color: #fff;
+      padding: 30px 0 20px 0;
       text-align: center;
-      color: white;
-      font-size: 2em;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      letter-spacing: 1px;
+      font-size: 2.5em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      border-radius: 0 0 36px 36px;
+      animation: headerPop 1s;
     }
     .content {
       max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      animation: slideUp 1.5s ease-out;
+      margin: 32px auto;
+      background: rgba(255,255,255,0.88);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 36px 22px 28px 22px;
       position: relative;
+      overflow: hidden;
+      animation: cardFadeIn 1.2s;
     }
     .profile-pic {
       width: 180px;
       height: 180px;
       border-radius: 50%;
       display: block;
-      margin: 20px auto 10px auto;
+      margin: -100px auto 18px auto;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      border: 4px solid #4a90e2;
-      animation: bounceIn 1.5s;
+      border: 6px solid var(--primary);
+      box-shadow: 0 8px 32px rgba(255,111,97,0.18);
+      background: #fff;
+      animation: bounceIn 1.2s;
+      z-index: 10;
+      position: relative;
     }
-    /* Computer Animation */
-    .computer-anim {
-      width: 240px;
-      margin: 32px auto 24px auto;
+    .animated-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    /* Colorful bubbles animation */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.33;
+      animation: floatBubble 9s infinite;
+      filter: blur(2px);
+    }
+    .bubble1 { width: 120px; height: 120px; background: var(--primary); left: 2%; top: 18%; animation-delay: 0s;}
+    .bubble2 { width: 90px; height: 90px; background: var(--accent); left: 85%; top: 10%; animation-delay: 2s;}
+    .bubble3 { width: 70px; height: 70px; background: #ffb347; left: 60%; top: 75%; animation-delay: 4s;}
+    .bubble4 { width: 100px; height: 100px; background: #3f51b5; left: 8%; top: 60%; animation-delay: 6s;}
+    @keyframes floatBubble {
+      0% { transform: translateY(0) scale(1);}
+      50% { transform: translateY(-40px) scale(1.1);}
+      100% { transform: translateY(0) scale(1);}
+    }
+    /* Animated language icons */
+    .lang-icons {
       display: flex;
       justify-content: center;
-      align-items: center;
-      position: relative;
-      animation: fadeIn 2s 1s both;
-    }
-    .monitor {
-      width: 140px;
-      height: 90px;
-      background: #222;
-      border-radius: 10px 10px 8px 8px;
-      border: 6px solid #4a90e2;
-      position: relative;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+      gap: 30px;
+      margin-bottom: 16px;
+      margin-top: 12px;
       z-index: 2;
-      overflow: hidden;
-      animation: monitorGlow 2s infinite alternate;
-    }
-    .monitor::after {
-      content: "";
-      position: absolute;
-      top: 8px; left: 8px; right: 8px; bottom: 8px;
-      background: linear-gradient(120deg, #4a90e2 10%, #fff0 80%);
-      opacity: 0.13;
-      border-radius: 6px;
-    }
-    .stand {
-      width: 24px;
-      height: 28px;
-      background: #4a90e2;
-      border-radius: 0 0 10px 10px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 90px;
-      z-index: 1;
-    }
-    .base {
-      width: 60px;
-      height: 12px;
-      background: #333;
-      border-radius: 10px 10px 16px 16px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 116px;
-      z-index: 0;
-    }
-    @keyframes monitorGlow {
-      from { box-shadow: 0 0 18px #4a90e2, 0 4px 18px rgba(0,0,0,0.18);}
-      to { box-shadow: 0 0 32px #4a90e2, 0 4px 28px rgba(0,0,0,0.22);}
-    }
-    /* Floating Language Icons */
-    .lang-icons {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 240px;
-      width: 220px;
-      display: flex;
-      justify-content: space-between;
-      pointer-events: none;
+      position: relative;
     }
     .lang-icon {
       font-size: 2.2em;
-      opacity: 0.92;
-      animation: floatIcon 3s infinite alternate;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.14));
+      animation: iconFloat 2.5s infinite alternate;
     }
     .lang-html { color: #e34c26; animation-delay: 0s;}
-    .lang-css { color: #2965f1; animation-delay: 0.5s;}
-    .lang-js { color: #f7df1e; animation-delay: 1s;}
-    .lang-react { color: #61dafb; animation-delay: 1.5s;}
-    @keyframes floatIcon {
+    .lang-css { color: #2965f1; animation-delay: 0.4s;}
+    .lang-js { color: #f7df1e; animation-delay: 0.8s;}
+    .lang-react { color: #61dafb; animation-delay: 1.2s;}
+    @keyframes iconFloat {
       from { transform: translateY(0);}
       to { transform: translateY(-18px);}
     }
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0;}
-      to { opacity: 1;}
-    }
-    @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0;}
-      to { transform: translateY(0); opacity: 1;}
-    }
-    @keyframes bounceIn {
-      0% { transform: scale(0.8); opacity: 0;}
-      60% { transform: scale(1.05); opacity: 1;}
-      100% { transform: scale(1); }
-    }
     h2 {
-      color: #4a90e2;
+      color: var(--primary);
       margin-top: 32px;
       font-weight: bold;
     }
@@ -143,23 +115,64 @@
       margin: 10px 0 20px 20px;
       font-size: 1.08em;
     }
+    .about {
+      font-size: 1.15em;
+      background: linear-gradient(90deg, #fffde4 0%, #f9ea8f 100%);
+      border-radius: 12px;
+      padding: 18px 16px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 12px rgba(255,183,71,0.07);
+      color: #333;
+      animation: fadeIn 1.6s;
+    }
+    .contact {
+      font-size: 1.08em;
+      color: #333;
+      margin-top: 12px;
+    }
+    .contact i { color: var(--accent); margin-right: 8px;}
+    a {
+      color: var(--secondary);
+      text-decoration: underline;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    a:hover { color: var(--primary);}
     footer {
       text-align: center;
-      padding: 10px;
-      margin-top: 30px;
-      color: #666;
+      padding: 18px 0 12px 0;
+      margin-top: 40px;
+      color: #fff;
+      font-size: 1.08em;
+      background: var(--secondary);
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 -4px 32px rgba(63,81,181,0.14);
+      letter-spacing: 1px;
+      animation: fadeIn 2s;
     }
-    a {
-      color: #4a90e2;
-      text-decoration: none;
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: scale(0.97);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @keyframes headerPop {
+      from { transform: scale(0.93); opacity: 0;}
+      to { transform: scale(1); opacity: 1;}
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0;}
+      60% { transform: scale(1.08); opacity: 1;}
+      100% { transform: scale(1);}
     }
     @media (max-width: 700px) {
-      .computer-anim { width: 98vw;}
-      .monitor { width: 90px; height: 56px;}
-      .stand { width: 14px; height: 16px; top: 56px;}
-      .base { width: 32px; height: 7px; top: 72px;}
-      .lang-icons { width: 120px; top: 140px;}
-      .lang-icon { font-size: 1.3em;}
+      header { font-size: 1.3em; padding: 18px 0;}
+      .content { padding: 12px 4px;}
+      .profile-pic { width: 120px; height: 120px; margin-top: -60px;}
+      .lang-icons { gap: 16px;}
     }
   </style>
 </head>
@@ -169,13 +182,17 @@
   </header>
 
   <div class="content">
-    <img src="IMG_20240319_133532.jpg" alt="Banuka's Picture" class="profile-pic">
-
-    <div class="computer-anim">
-      <div class="monitor"></div>
-      <div class="stand"></div>
-      <div class="base"></div>
+    <!-- Animated background bubbles -->
+    <div class="animated-bg">
+      <div class="bubble bubble1"></div>
+      <div class="bubble bubble2"></div>
+      <div class="bubble bubble3"></div>
+      <div class="bubble bubble4"></div>
     </div>
+    <!-- Profile Picture -->
+    <img src="images/IMG_20240319_133532.jpg" alt="Banuka Lakshan" class="profile-pic">
+
+    <!-- Animated Language Icons -->
     <div class="lang-icons">
       <i class="fab fa-html5 lang-icon lang-html" title="HTML5"></i>
       <i class="fab fa-css3-alt lang-icon lang-css" title="CSS3"></i>
@@ -183,11 +200,10 @@
       <i class="fab fa-react lang-icon lang-react" title="React"></i>
     </div>
 
-    <h2>About Me</h2>
-    <p>
-      Hello! I'm Banuka Lakshan Kasthuriarachchi, a motivated and enthusiastic student passionate about technology and innovation.<br>
+    <div class="about">
+      Hello! I'm <b>Banuka Lakshan Kasthuriarachchi</b>, a motivated and enthusiastic student passionate about technology and innovation.<br>
       Currently pursuing my degree in Information Technology, I'm always eager to learn and contribute to exciting projects.
-    </p>
+    </div>
 
     <h2>Skills</h2>
     <ul>
@@ -205,11 +221,11 @@
     </ul>
 
     <h2>Contact</h2>
-    <p>
+    <div class="contact">
       <i class="fa fa-envelope"></i> banukalakshan980@gmail.com<br>
       Connect with me on
       <a href="https://github.com/BanukaKas" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-    </p>
+    </div>
   </div>
 
   <footer>
