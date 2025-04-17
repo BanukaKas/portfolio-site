@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,43 +7,99 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #ff6f61;
-      --secondary: #3f51b5;
-      --accent: #00bcd4;
-      --bg1: #fffde4;
-      --bg2: #f9ea8f;
-      --gradient: linear-gradient(135deg, #ff6f61 0%, #ffb347 40%, #00bcd4 100%);
+      /* Light Theme */
+      --color-bg: #f8fafc;
+      --color-card: #fff;
+      --color-primary: #ff6f61;
+      --color-secondary: #3f51b5;
+      --color-accent: #00bcd4;
+      --color-text: #222;
+      --color-subtle: #f3f6fd;
+      --color-border: #e0e6ed;
+      --color-bubble1: #ff6f61;
+      --color-bubble2: #00bcd4;
+      --color-bubble3: #ffb347;
+      --color-bubble4: #3f51b5;
+      --shadow: 0 8px 32px rgba(0,0,0,0.10);
+      --toggle-bg: #fff;
+      --toggle-icon: #ffb347;
     }
-    body {
+    [data-theme="dark"] {
+      --color-bg: #181d23;
+      --color-card: #23272f;
+      --color-primary: #ffb347;
+      --color-secondary: #4a90e2;
+      --color-accent: #00bcd4;
+      --color-text: #f9fafb;
+      --color-subtle: #23272f;
+      --color-border: #23272f;
+      --color-bubble1: #ffb347;
+      --color-bubble2: #00bcd4;
+      --color-bubble3: #ff6f61;
+      --color-bubble4: #4a90e2;
+      --shadow: 0 8px 32px rgba(0,0,0,0.30);
+      --toggle-bg: #23272f;
+      --toggle-icon: #ff6f61;
+    }
+    html, body {
       margin: 0;
+      padding: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--gradient);
       min-height: 100vh;
-      color: #222;
-      animation: fadeIn 1.5s;
+      transition: background 0.3s, color 0.3s;
     }
     header {
-      background: rgba(63,81,181,0.92);
+      background: var(--color-secondary);
       color: #fff;
       padding: 32px 0 24px 0;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 2.2em;
       font-weight: bold;
       letter-spacing: 2px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       border-radius: 0 0 36px 36px;
-      animation: headerPop 1s;
+      position: relative;
+      transition: background 0.3s;
     }
+    .theme-toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 32px;
+      background: var(--toggle-bg);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.3s;
+      z-index: 20;
+    }
+    .theme-toggle-btn:focus { outline: 2px solid var(--color-primary);}
+    .theme-toggle-btn .fa-sun, .theme-toggle-btn .fa-moon {
+      font-size: 1.5em;
+      color: var(--toggle-icon);
+      transition: color 0.3s;
+    }
+    [data-theme="dark"] .theme-toggle-btn .fa-sun { display: none; }
+    [data-theme="light"] .theme-toggle-btn .fa-moon { display: none; }
     .content {
       max-width: 980px;
       margin: 38px auto;
-      background: rgba(255,255,255,0.95);
+      background: var(--color-card);
       border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      box-shadow: var(--shadow);
       padding: 38px 28px 32px 28px;
       position: relative;
       overflow: hidden;
       animation: cardFadeIn 1.2s;
+      border: 1.5px solid var(--color-border);
+      transition: background 0.3s, box-shadow 0.3s, border 0.3s;
     }
     .profile-pic {
       width: 180px;
@@ -52,12 +108,13 @@
       display: block;
       margin: -110px auto 18px auto;
       object-fit: cover;
-      border: 6px solid var(--primary);
+      border: 6px solid var(--color-primary);
       box-shadow: 0 8px 32px rgba(255,111,97,0.18);
       background: #fff;
       animation: bounceIn 1.2s;
       z-index: 10;
       position: relative;
+      transition: border 0.3s;
     }
     .animated-bg {
       position: absolute;
@@ -66,24 +123,22 @@
       z-index: 0;
       overflow: hidden;
     }
-    /* Colorful bubbles animation */
     .bubble {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.25;
+      opacity: 0.21;
       animation: floatBubble 9s infinite;
       filter: blur(2px);
     }
-    .bubble1 { width: 120px; height: 120px; background: var(--primary); left: 2%; top: 18%; animation-delay: 0s;}
-    .bubble2 { width: 90px; height: 90px; background: var(--accent); left: 85%; top: 10%; animation-delay: 2s;}
-    .bubble3 { width: 70px; height: 70px; background: #ffb347; left: 60%; top: 75%; animation-delay: 4s;}
-    .bubble4 { width: 100px; height: 100px; background: #3f51b5; left: 8%; top: 60%; animation-delay: 6s;}
+    .bubble1 { width: 120px; height: 120px; background: var(--color-bubble1); left: 2%; top: 18%; animation-delay: 0s;}
+    .bubble2 { width: 90px; height: 90px; background: var(--color-bubble2); left: 85%; top: 10%; animation-delay: 2s;}
+    .bubble3 { width: 70px; height: 70px; background: var(--color-bubble3); left: 60%; top: 75%; animation-delay: 4s;}
+    .bubble4 { width: 100px; height: 100px; background: var(--color-bubble4); left: 8%; top: 60%; animation-delay: 6s;}
     @keyframes floatBubble {
       0% { transform: translateY(0) scale(1);}
       50% { transform: translateY(-40px) scale(1.1);}
       100% { transform: translateY(0) scale(1);}
     }
-    /* Animated language icons */
     .lang-icons {
       display: flex;
       justify-content: center;
@@ -108,7 +163,7 @@
     }
     .cv-download-btn {
       display: inline-block;
-      background: var(--secondary);
+      background: var(--color-secondary);
       color: #fff;
       font-weight: bold;
       font-size: 1.1em;
@@ -123,13 +178,13 @@
       animation: fadeIn 2s 1.5s both;
     }
     .cv-download-btn:hover {
-      background: var(--primary);
+      background: var(--color-primary);
       color: #fff;
       transform: translateY(-2px) scale(1.05);
       text-decoration: none;
     }
     h2 {
-      color: var(--primary);
+      color: var(--color-primary);
       margin-top: 32px;
       font-weight: bold;
     }
@@ -146,6 +201,11 @@
       box-shadow: 0 2px 12px rgba(255,183,71,0.07);
       color: #333;
       animation: fadeIn 1.6s;
+      transition: background 0.3s, color 0.3s;
+    }
+    [data-theme="dark"] .about {
+      background: linear-gradient(90deg, #23272f 0%, #181d23 100%);
+      color: #f9fafb;
     }
     .info-grid {
       display: flex;
@@ -157,33 +217,38 @@
     .info-col {
       flex: 1 1 220px;
       min-width: 200px;
-      background: #f3f6fd;
+      background: var(--color-subtle);
       border-radius: 10px;
       padding: 12px 18px;
       box-shadow: 0 2px 8px rgba(63,81,181,0.06);
+      transition: background 0.3s;
     }
-    .info-col strong { color: var(--secondary);}
+    .info-col strong { color: var(--color-secondary);}
     .contact {
       font-size: 1.08em;
       color: #333;
       margin-top: 12px;
     }
-    .contact i { color: var(--accent); margin-right: 8px;}
+    .contact i { color: var(--color-accent); margin-right: 8px;}
     a {
-      color: var(--secondary);
+      color: var(--color-secondary);
       text-decoration: underline;
       font-weight: bold;
       transition: color 0.2s;
     }
-    a:hover { color: var(--primary);}
+    a:hover { color: var(--color-primary);}
     .ref-box {
-      background: #f3f6fd;
+      background: var(--color-subtle);
       border-radius: 10px;
       padding: 10px 18px;
       font-size: 1em;
       margin-bottom: 18px;
       color: #333;
       box-shadow: 0 2px 8px rgba(63,81,181,0.06);
+      transition: background 0.3s, color 0.3s;
+    }
+    [data-theme="dark"] .ref-box {
+      color: #f9fafb;
     }
     footer {
       text-align: center;
@@ -191,11 +256,12 @@
       margin-top: 40px;
       color: #fff;
       font-size: 1.08em;
-      background: var(--secondary);
+      background: var(--color-secondary);
       border-radius: 24px 24px 0 0;
       box-shadow: 0 -4px 32px rgba(63,81,181,0.14);
       letter-spacing: 1px;
       animation: fadeIn 2s;
+      transition: background 0.3s;
     }
     /* Animations */
     @keyframes fadeIn {
@@ -227,6 +293,10 @@
 <body>
   <header>
     Banuka Lakshan Portfolio
+    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </button>
   </header>
 
   <div class="content">
@@ -343,5 +413,30 @@
   <footer>
     &copy; 2025 Banuka Lakshan Kasthuriarachchi. All rights reserved.
   </footer>
+
+  <script>
+    // Theme toggle logic (local storage + system preference)
+    const html = document.documentElement;
+    const themeToggleBtn = document.getElementById('theme-toggle');
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    function getPreferredTheme() {
+      const stored = localStorage.getItem('theme');
+      if (stored) return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // Set theme on load
+    setTheme(getPreferredTheme());
+
+    themeToggleBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'light' ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
