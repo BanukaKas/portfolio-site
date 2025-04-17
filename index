@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banuka Kasthuriarachchi - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      font-weight: 600;
+    }
+    .btn {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 2px solid #000;
+      text-decoration: none;
+      color: #000;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+    .section {
+      margin-top: 2rem;
+    }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      flex: 1 1 30%;
+    }
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    .contact a {
+      color: #222;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="IMG_20240319_133532.jpg" alt="Banuka" />
+    <div>
+      <h1>Banuka Kasthuriarachchi</h1>
+      <p>I'm a software developer specializing in web development.</p>
+      <a class="btn" href="Banuka_resume .pdf" download>Download CV</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Projects</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>E-commerce Website</h3>
+        <p>Developed a full-stack e-commerce application with user authentication and payment integration.</p>
+        <p><strong>Tech:</strong> React, Node.js, MySQL</p>
+        <a href="https://github.com/BanukaKas" class="btn">GitHub →</a>
+      </div>
+      <div class="card">
+        <h3>Chat Application</h3>
+        <p>Built a real-time chat app using WebSocket technology with a responsive design.</p>
+        <p><strong>Tech:</strong> Node.js, Express, Socket.io</p>
+        <a href="https://github.com/BanukaKas" class="btn">GitHub →</a>
+      </div>
+      <div class="card">
+        <h3>Task Management System</h3>
+        <p>Created a task management system for tracking and organizing tasks and projects.</p>
+        <p><strong>Tech:</strong> Python, Flask, MySQL</p>
+        <a href="https://github.com/BanukaKas" class="btn">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Education</h2>
+    <p><strong>BSc (Hons) Information Technology</strong><br />SLIIT<br />GPA: 3.80</p>
+  </section>
+
+  <section class="section">
+    <h2>Skills</h2>
+    <p><strong>Programming:</strong> Python, Java<br />
+    <strong>Frameworks & Tools:</strong> React, Node.js, MySQL<br />
+    <strong>Soft Skills:</strong> Quick learner, Team player</p>
+  </section>
+
+  <section class="section contact">
+    <h2>Contact</h2>
+    <a href="mailto:banukakasthuriarachchi@gmail.com">Email</a>
+    <a href="https://github.com/BanukaKas">GitHub</a>
+    <a href="https://www.linkedin.com/in/banuka-kasthuriarachchi">LinkedIn</a>
+  </section>
+
+  <div class="footer">
+    <p>© 2025 Banuka Kasthuriarachchi. All rights reserved.</p>
+  </div>
+</body>
+</html>
