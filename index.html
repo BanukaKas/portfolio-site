@@ -3,143 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banuka Kasthuriarachchi - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Banuka Kasun | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
     body {
-      background-color: #f9f9f9;
-      color: #222;
+      background: #f8f9fa;
+      color: #212529;
       line-height: 1.6;
-      padding: 2rem;
-      animation: fadeIn 1.5s ease-in;
+      padding: 20px;
+      animation: fadeIn 1s ease-in;
     }
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    header img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
       border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .profile-img {
+      width: 160px;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
     h1 {
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 2.5rem;
+      color: #007BFF;
     }
     h2 {
       font-size: 1.5rem;
-      margin-top: 2rem;
-      font-weight: 600;
+      margin-top: 30px;
+      color: #343a40;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 5px;
     }
-    .btn {
-      margin-top: 1rem;
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border: 2px solid #000;
+    p, li {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+    a {
+      color: #007BFF;
       text-decoration: none;
-      color: #000;
-      border-radius: 6px;
-      transition: all 0.3s ease;
     }
-    .btn:hover {
-      background-color: #000;
-      color: #fff;
+    a:hover {
+      text-decoration: underline;
     }
-    .section {
-      margin-top: 2rem;
-    }
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      flex: 1 1 30%;
-    }
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-    .contact a {
-      color: #222;
-      text-decoration: none;
-      margin-right: 1rem;
+    .resume-link {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="IMG_20240319_133532.jpg" alt="Banuka" />
-    <div>
-      <h1>Banuka Kasthuriarachchi</h1>
-      <p>I'm a software developer specializing in web development.</p>
-      <a class="btn" href="Banuka_resume .pdf" download>Download CV</a>
-    </div>
-  </header>
+  <div class="container">
+    <img src="IMG_20240319_133532.jpg" alt="Banuka Kasun" class="profile-img" />
+    <h1>Banuka Kasun</h1>
+    <p><strong>Email:</strong> banukakasunofficial@gmail.com</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/BanukaKas" target="_blank">BanukaKas</a></p>
+    
+    <h2>About Me</h2>
+    <p>A dedicated and hardworking undergraduate at SLIIT with a strong foundation in Information Technology. Passionate about designing digital experiences that are both visually stunning and intuitive. Quick learner with a great attitude towards new challenges.</p>
 
-  <section class="section">
-    <h2>Projects</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>E-commerce Website</h3>
-        <p>Developed a full-stack e-commerce application with user authentication and payment integration.</p>
-        <p><strong>Tech:</strong> React, Node.js, MySQL</p>
-        <a href="https://github.com/BanukaKas" class="btn">GitHub →</a>
-      </div>
-      <div class="card">
-        <h3>Chat Application</h3>
-        <p>Built a real-time chat app using WebSocket technology with a responsive design.</p>
-        <p><strong>Tech:</strong> Node.js, Express, Socket.io</p>
-        <a href="https://github.com/BanukaKas" class="btn">GitHub →</a>
-      </div>
-      <div class="card">
-        <h3>Task Management System</h3>
-        <p>Created a task management system for tracking and organizing tasks and projects.</p>
-        <p><strong>Tech:</strong> Python, Flask, MySQL</p>
-        <a href="https://github.com/BanukaKas" class="btn">GitHub →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Education</h2>
-    <p><strong>BSc (Hons) Information Technology</strong><br />SLIIT<br /></p>
-  </section>
-
-  <section class="section">
     <h2>Skills</h2>
-    <p><strong>Programming:</strong> Python, Java<br />
-    <strong>Frameworks & Tools:</strong> React, Node.js, MySQL<br />
-    <strong>Soft Skills:</strong> Quick learner, Team player</p>
-  </section>
+    <ul>
+      <li>Front-End: HTML, CSS, JavaScript, React</li>
+      <li>Back-End: Node.js, Express</li>
+      <li>Database: MySQL</li>
+      <li>Tools: Git, GitHub, XAMPP, Figma</li>
+    </ul>
 
-  <section class="section contact">
-    <h2>Contact</h2>
-    <a href="mailto:banukakasthuriarachchi@gmail.com">Email</a>
-    <a href="https://github.com/BanukaKas">GitHub</a>
-    <a href="https://www.linkedin.com/in/banuka-kasthuriarachchi">LinkedIn</a>
-  </section>
+    <h2>Projects</h2>
+    <p><strong>Smart Aquarium Management System</strong> – A comprehensive platform with fish disease detection using YOLOv11 and PyTorch, real-time monitoring via a React Native mobile app, and Node.js backend integration.</p>
 
-  <div class="footer">
-    <p>© 2025 Banuka Kasthuriarachchi. All rights reserved.</p>
+    <h2>Education</h2>
+    <p><strong>SLIIT - Sri Lanka Institute of Information Technology</strong><br />
+    BSc in Information Technology</p>
+
+    <h2>Resume</h2>
+    <p class="resume-link">
+      <a href="Banuka_resume .pdf" download>Download My Resume (PDF)</a>
+    </p>
   </div>
 </body>
 </html>
